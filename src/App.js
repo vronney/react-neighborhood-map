@@ -58,7 +58,8 @@ this.state.venues.map(myVenue => {
       lng: myVenue.venue.location.lng
     },
     map: map,
-    title: myVenue.venue.name
+    title: myVenue.venue.name,
+    animation: window.google.maps.Animation.DROP
   })
 
 })
