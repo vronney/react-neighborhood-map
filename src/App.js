@@ -15,7 +15,7 @@ componentDidMount() {
 }
 
 renderMap = () => {
-  loadScript("https://maps.googleapis.com/maps/api/js?key=AIzaSyAOVpJh6ZP06deNCZ7xABAuBqbhjd5NEDk&callback=initMap")
+  loadScript("https://maps.googleapis.com/maps/api/js?libraries=geometry,drawing,places&key=AIzaSyAOVpJh6ZP06deNCZ7xABAuBqbhjd5NEDk&callback=initMap")
   window.initMap = this.initMap
 }
 
@@ -33,7 +33,7 @@ getVenues = () => {
   .then(response => {
     this.setState({
       venues: response.data.response.groups[0].items
-    })
+    }, this.renderMap()) // this was needed to re-renderMap in order to gather venues array with data.
   })
   .catch(error => {
     console.log("ERROR! " + error)
@@ -48,6 +48,21 @@ initMap = () => {
     },
     zoom: 11
   });
+
+this.state.venues.map(myVenue => {
+
+
+  var marker = new window.google.maps.Marker({
+    position: {
+      lat: myVenue.venue.location.lat,
+      lng: myVenue.venue.location.lng
+    },
+    map: map,
+    title: myVenue.venue.name
+  })
+
+})
+
 }
 
 
