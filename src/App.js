@@ -41,6 +41,8 @@ getVenues = () => {
 }
 
 initMap = () => {
+
+  // Create map
   var map = new window.google.maps.Map(document.getElementById('map'), {
     center: {
       lat: 29.424122,
@@ -49,9 +51,15 @@ initMap = () => {
     zoom: 11
   });
 
+  // Create an infowindow
+var infowindow = new window.google.maps.InfoWindow()
+
+
 this.state.venues.map(myVenue => {
 
+var contentString = `<div id="content-name">${myVenue.venue.name}</div><div id="content-address">${myVenue.venue.location.formattedAddress}</div>`
 
+  // Create markers
   var marker = new window.google.maps.Marker({
     position: {
       lat: myVenue.venue.location.lat,
@@ -60,7 +68,15 @@ this.state.venues.map(myVenue => {
     map: map,
     title: myVenue.venue.name,
     animation: window.google.maps.Animation.DROP
-  })
+  });
+
+  // Click on marker for infowindow
+    marker.addListener('click', function() {
+      // Add contact to infowindow
+      infowindow.setContent(contentString)
+  // Opens infowindow
+      infowindow.open(map, marker);
+  });
 
 })
 
