@@ -1,105 +1,68 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import './App.css';
-import axios from 'axios';
+import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
+import MapStyle from './MapStyle.json';
+import NavBtn from './components/NavButton/NavButton.js';
+
 
 class App extends Component {
-
-
-state = {
-  venues: []
-}
-
-componentDidMount() {
-  this.getVenues()
-  this.renderMap()
-}
-
-renderMap = () => {
-  loadScript("https://maps.googleapis.com/maps/api/js?libraries=geometry,drawing,places&key=AIzaSyAOVpJh6ZP06deNCZ7xABAuBqbhjd5NEDk&callback=initMap")
-  window.initMap = this.initMap
-}
-
-getVenues = () => {
-  const endPoint = "https://api.foursquare.com/v2/venues/explore?"
-  const parameters = {
-    client_id: "1YGG0W2AHG3BWHL1CKC0ZN5TOEMSXGJSEZ4QQXC2WC5XB3EA",
-    client_secret: "LK3GPKNUEPGIYKG540ZHQ0BDDSK1NYMVMAEJLNCVAVBGNJDZ",
-    query: "food",
-    near: "San Antonio, TX",
-    v: "20182507"
+  constructor (props) {
+    super(props);
+    this.state = {
+      showingInfoWindow: false,
+      activeMarker: {},
+      selectedPlace: {}
+    };
   }
 
-  axios.get(endPoint + new URLSearchParams(parameters))
-  .then(response => {
+  onMarkerClick = (props, marker, e) => {
     this.setState({
-      venues: response.data.response.groups[0].items
-    }, this.renderMap()) // this was needed to re-renderMap in order to gather venues array with data.
-  })
-  .catch(error => {
-    console.log("ERROR! " + error)
-  })
-}
+      selectedPlace: props,
+      activeMarker: marker,
+      showingInfoWindow: true
+    });
+  }
 
-initMap = () => {
-
-  // Create map
-  var map = new window.google.maps.Map(document.getElementById('map'), {
-    center: {
-      lat: 29.424122,
-      lng: -98.493628
-    },
-    zoom: 11
-  });
-
-  // Create an infowindow
-var infowindow = new window.google.maps.InfoWindow()
-
-
-this.state.venues.map(myVenue => {
-
-var contentString = `<div id="content-name">${myVenue.venue.name}</div><div id="content-address">${myVenue.venue.location.formattedAddress}</div>`
-
-  // Create markers
-  var marker = new window.google.maps.Marker({
-    position: {
-      lat: myVenue.venue.location.lat,
-      lng: myVenue.venue.location.lng
-    },
-    map: map,
-    title: myVenue.venue.name,
-    animation: window.google.maps.Animation.DROP
-  });
-
-  // Click on marker for infowindow
-    marker.addListener('click', function() {
-      // Add contact to infowindow
-      infowindow.setContent(contentString)
-  // Opens infowindow
-      infowindow.open(map, marker);
-  });
-
-})
-
-}
-
+  onMapClicked = (props) => {
+    if (this.state.showingInfoWindow) {
+      this.setState({
+        showingInfoWindow: false,
+        activeMarker: null
+      })
+    }
+  };
 
   render() {
+
     return (
-      <main>
-        <div id = "map"></div>
-      </main>
+      <div className="App">
+        <header className="App-header">
+          <NavBtn />
+        </header>
+        <Map
+          google={this.props.google}
+          styles={MapStyle}
+          initialCenter={{
+            lat: 9.928069,
+            lng: -84.090725
+          }}
+          zoom={12}>
+          <Marker onClick={this.onMarkerClick}
+            name={'San Jose, Costa Rica'} />
+          <InfoWindow
+            marker={this.state.activeMarker}
+            visible={this.state.showingInfoWindow}>
+            <div className="infoBox">
+              <h1>{this.state.selectedPlace.name}</h1>
+            </div>
+          </InfoWindow>
+        </Map>
+      </div>
     );
   }
 }
 
-function loadScript(url) {
-  var index = window.document.getElementsByTagName("script")[0]
-  var script = window.document.createElement("script")
-  script.src = url
-  script.async = true
-  script.defer = true
-  index.parentNode.insertBefore(script, index)
-}
-
-
-export default App;
+export default GoogleApiWrapper({
+  apiKey: ("AIzaSyAOVpJh6ZP06deNCZ7xABAuBqbhjd5NEDk"),
+  libraries: ['geometry', 'drawing', 'places']
+})(App)
