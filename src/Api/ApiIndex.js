@@ -12,9 +12,9 @@ class Helper {
     }
     static urlBuilder(urlPrams) {
         if (!urlPrams) {
-            return "";
+            return ""
         }
-        return Object.keys(this.urlPrams).map(key => `${key}=${urlPrams[key]}`).join("&");
+        return Object.keys(urlPrams).map(key => `${key}=${urlPrams[key]}`).join("&");
     }
     static headers() {
         return {
