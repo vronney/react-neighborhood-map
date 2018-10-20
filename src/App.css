@@ -3,16 +3,11 @@
 }
 
 .App-header {
-  background-color: #282c34;
-  height: 40px;
-  display: flex;
-  //flex-direction: column;
+  //background-color: #282c34;
+  height: 100%;
+  width: 100%;
+  flex-direction: column;
   align-items: center;
-  //justify-content: center;
-  font-size: 1em;
-  color: white;
-}
-
-.infoBox {
-  font-size: 6px;
+  justify-content: center;
+  color: white;  
 }
