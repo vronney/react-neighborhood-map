@@ -14,12 +14,43 @@ class App extends Component {
       zoom: 12
     };
   }
-  
+// Closes infowindow if another marker is clicked
+
+  closeAllMarkers = () => {
+    const markers = this.state.markers.map(marker => {
+      marker.isOpen = false;
+      return marker;
+    });
+    this.setState({
+      marker: Object.assign(this.state.markers,markers)
+    });    
+  };
+// Opens infowindow when marker is clicked
+
+  handleMarkerClick = marker => {
+    this.closeAllMarkers();
+    marker.isOpen = true;
+    this.setState({
+      markers: Object.assign(this.state.markers,marker)
+    });
+    const venue = this.state.venues.find(venue => venue.id === marker.id);
+
+    SquareApi.getVenueDetails(marker.id)
+      .then(res => {const newVenue = Object.assign(venue, res.response.venue);
+        this.setState({
+          venues: Object.assign(this.state.venues, newVenue)
+        });
+      console.log(newVenue);
+  });
+};
+
+// Data is requested from FourSquare
+
   componentDidMount() {
     SquareApi.search({
       near: "San Antonio, TX",
-      query: "restaurants",
-      limit: 30
+      query: "mexican food",
+      limit: 5
     }).then(results => {
       const {venues} = results.response;
       const {center} = results.response.geocode.feature.geometry;
@@ -28,7 +59,8 @@ class App extends Component {
           lat: venue.location.lat,
           lng: venue.location.lng,
           isOpen: false,
-          isVisible: true
+          isVisible: true,
+          id: venue.id
         };
       });
       this.setState({venues,center, markers});
@@ -40,7 +72,7 @@ class App extends Component {
       return (
       <div className="App">
         <header className="App-header">
-          <Map {...this.state} />
+          <Map {...this.state} handleMarkerClick={this.handleMarkerClick} />
         </header>
         
       </div>
