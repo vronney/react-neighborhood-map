@@ -13,12 +13,14 @@ const MyMapComponent = withScriptjs(withGoogleMap((props) => (
          .filter(marker => marker.isVisible)
          .map((marker, idx) => {
             const venueInfo = props.venues.find(venue => venue.id === marker.id);
+            
             return (
               < Marker 
                 key={idx} 
                 position = {{ lat: marker.lat, lng: marker.lng }} 
                 onClick={() => props.handleMarkerClick(marker)}
                 defaultAnimation={window.google.maps.Animation.DROP}
+                      
                 >
                 {marker.isOpen && venueInfo.bestPhoto && (
                    <InfoWindow>
@@ -45,7 +47,7 @@ class Map extends Component {
                 {...this.props}
                 googleMapURL = "https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=AIzaSyAOVpJh6ZP06deNCZ7xABAuBqbhjd5NEDk"
                 loadingElement={< div style={{height: `100%`}} />}
-                containerElement={< div style={{height: `100vh`}} />}
+                containerElement={< div style={{height: `100vh`, width: `75%`, right: `0`}} />}
                 mapElement={< div style={{height: `100%`}} />}
             />
         );

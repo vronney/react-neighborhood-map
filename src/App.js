@@ -32,8 +32,8 @@ class App extends Component {
     this.closeAllMarkers();
     marker.isOpen = true;
     this.setState({
-      markers: Object.assign(this.state.markers,marker)
-    });
+      markers: Object.assign(this.state.markers,marker),
+      });
     const venue = this.state.venues.find(venue => venue.id === marker.id);
 
     SquareApi.getVenueDetails(marker.id)
