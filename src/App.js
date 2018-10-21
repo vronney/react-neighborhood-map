@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import './App.css';
 import Map from './components/map.js';
 import SquareApi from './Api/ApiIndex.js';
+import SideBar from './components/SideBar';
 
 class App extends Component {
 
@@ -45,6 +46,12 @@ class App extends Component {
   });
 };
 
+// Display infowindow when the name is clicked in the searchBar
+
+handleListItemClick = venue => {
+  console.log('clicked');
+}
+
 // Data is requested from FourSquare
 
   componentDidMount() {
@@ -72,10 +79,8 @@ class App extends Component {
     render() {
       return (
       <div className="App">
-        <header className="App-header">
-          <Map {...this.state} handleMarkerClick={this.handleMarkerClick} />
-        </header>
-        
+        <SideBar {...this.state} handleListItemClick={this.handleListItemClick}/>
+        <Map {...this.state} handleMarkerClick={this.handleMarkerClick} />
       </div>
     );
   }

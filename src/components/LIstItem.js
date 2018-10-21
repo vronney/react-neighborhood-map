@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 
-export class ListItem extends Component {
+class ListItem extends Component {
     render() {
         return (
-           <li className="listItem">
-            Hello
+           <li className="listItem" onClick={() => this.props.handleListItemClick(this.props)}>
+            {this.props.name}
            </li> 
         );
     }
 }
+
+export default ListItem;
