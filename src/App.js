@@ -11,7 +11,8 @@ class App extends Component {
       venues: [],
       markers: [],
       center: [],
-      zoom: 12
+      zoom: 12,
+      markerColor: '#FFFF24' 
     };
   }
 // Closes infowindow if another marker is clicked
@@ -27,7 +28,7 @@ class App extends Component {
   };
 // Opens infowindow when marker is clicked
 
-  handleMarkerClick = marker => {
+  handleMarkerClick = (marker) => {
     this.closeAllMarkers();
     marker.isOpen = true;
     this.setState({
@@ -49,8 +50,8 @@ class App extends Component {
   componentDidMount() {
     SquareApi.search({
       near: "San Antonio, TX",
-      query: "mexican food",
-      limit: 5
+      query: "steak",
+      limit: 10
     }).then(results => {
       const {venues} = results.response;
       const {center} = results.response.geocode.feature.geometry;

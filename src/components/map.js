@@ -17,14 +17,19 @@ const MyMapComponent = withScriptjs(withGoogleMap((props) => (
               < Marker 
                 key={idx} 
                 position = {{ lat: marker.lat, lng: marker.lng }} 
-                onClick={() => props.handleMarkerClick(marker)} >
+                onClick={() => props.handleMarkerClick(marker)}
+                defaultAnimation={window.google.maps.Animation.DROP}
+                >
                 {marker.isOpen && venueInfo.bestPhoto && (
-                    <InfoWindow>
+                   <InfoWindow>
                         <React.Fragment>
-                            <img src={`${venueInfo.bestPhoto.prefix}150x150${venueInfo.bestPhoto.suffix}`} alt={"Venue Info"}/>
-                            <p>}{venueInfo.name}</p>    
+                            <h2>{venueInfo.name}</h2>
+                            <img src={`${venueInfo.bestPhoto.prefix}200x200${venueInfo.bestPhoto.suffix}`} alt={"Venue Info"}/>
+                            <p>{venueInfo.location.address}</p>
+                            <p>{venueInfo.location.city} {venueInfo.location.postalCode}</p>
+                            <p>Rating: {venueInfo.rating} Cost: {venueInfo.price.message}</p>    
                         </React.Fragment>
-                    </InfoWindow>
+                   </InfoWindow> 
                 )}
              </Marker>
             );

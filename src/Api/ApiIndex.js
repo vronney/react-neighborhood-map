@@ -9,7 +9,7 @@ class Helper {
         const keys = {
             client_id: "1YGG0W2AHG3BWHL1CKC0ZN5TOEMSXGJSEZ4QQXC2WC5XB3EA",
             client_secret: "LK3GPKNUEPGIYKG540ZHQ0BDDSK1NYMVMAEJLNCVAVBGNJDZ",
-            v: "20181029"
+            v: "20181021"
         };
         return Object.keys(keys).map(key => `${key}=${keys[key]}`).join("&");
     }
