@@ -47,9 +47,10 @@ class App extends Component {
 };
 
 // Display infowindow when the name is clicked in the searchBar
-
+// When the listItem is clicked the infowindow opens on the map.  
 handleListItemClick = venue => {
-  console.log('clicked');
+  const marker = this.state.markers.find(marker => marker.id === venue.id)
+  this.handleMarkerClick(marker);
 }
 
 // Data is requested from FourSquare
