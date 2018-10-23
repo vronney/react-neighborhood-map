@@ -23,6 +23,11 @@
   margin-top: .5em;
   cursor: pointer;
   box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+  background: deepskyblue;
+  display: flex;
+  align-items: center;
+  color: white;
+  font-size: 1.2em;
 }
 
  /* .App-header {

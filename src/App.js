@@ -12,8 +12,7 @@ class App extends Component {
       venues: [],
       markers: [],
       center: [],
-      zoom: 12,
-      markerColor: '#FFFF24' 
+      zoom: 12
     };
   }
 // Closes infowindow if another marker is clicked
@@ -58,7 +57,7 @@ handleListItemClick = venue => {
   componentDidMount() {
     SquareApi.search({
       near: "San Antonio, TX",
-      query: "steak",
+      query: "tacos",
       limit: 10
     }).then(results => {
       const {venues} = results.response;
