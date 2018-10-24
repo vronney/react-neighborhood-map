@@ -32,7 +32,9 @@ class Helper {
         return fetch(
             `${Helper.baseURL()}${endPoint}?${Helper.auth()}&${Helper.urlBuilder(urlPrams)}`,
             requestData
-        ).then(res => res.json());
+        ).then(res => res.json())
+        .catch(error => console.error('Error: ', error));
+
     }
 }
 

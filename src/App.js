@@ -12,7 +12,10 @@ class App extends Component {
       venues: [],
       markers: [],
       center: [],
-      zoom: 12
+      zoom: 12,
+      updateSuperState: obj => {
+        this.setState(obj);
+      }
     };
   }
 // Closes infowindow if another marker is clicked
@@ -57,7 +60,7 @@ handleListItemClick = venue => {
   componentDidMount() {
     SquareApi.search({
       near: "San Antonio, TX",
-      query: "tacos",
+      query: "steakhouse",
       limit: 10
     }).then(results => {
       const {venues} = results.response;
