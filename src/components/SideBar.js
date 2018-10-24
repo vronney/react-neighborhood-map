@@ -40,6 +40,7 @@ class SideBar extends Component {
     render() {
         return(
             <div className="sideBar" style={{width: `25%`}}>
+                < h1 className = "title" > Welcome To The Best SteakHouses In San Antonio! < /h1>
                 <input type={"search"} id={"search"} placeholder={"Filter Venues"} onChange={this.handleChange}/>
                 <VenueList
                  {...this.props}

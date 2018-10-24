@@ -28,6 +28,14 @@
   align-items: center;
   color: white;
   font-size: 1.2em;
+  border-radius: 20px;
+}
+
+.App .title {
+  background-color: gray;
+  color: white;
+  margin: 0;
+  height: 60px;
 }
 
  /* .App-header {
