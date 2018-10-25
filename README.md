@@ -7,7 +7,7 @@ A single-page web application, built using the React framework, that displays a 
 The application follows the [Udacity Project Rubic.](https://review.udacity.com/#!/rubrics/1351/view)
 
 ## Features
-1. Type into the filter/search box to filter the shownn locations on the map.
+1. Type into the filter/search box to filter the shown locations on the map.
 <details>
   <summary>Below you will find some information on how to perform common tasks.</summary><br>
 You can find the most recent version of this guide [here](https://github.com/facebook/create-react-app/blob/master/packages/react-scripts/template/README.md).
