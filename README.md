@@ -1,6 +1,7 @@
-# NeighborHood-React-Map
+# Neighborhood-React-Map
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+--
 
 <details>
   <summary>Below you will find some information on how to perform common tasks.</summary><br>
