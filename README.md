@@ -11,6 +11,7 @@ The application follows the [Udacity Project Rubic.](https://review.udacity.com/
 2. Click on the list item in the search box to expand the infowindow.
 3. Click on any marker to see the location details fetched from the [FourSquare APIs.](https://developer.foursquare.com/)
 4. View window is responsive from desktop, laptop to mobile.  
+5. Calling a Google Map with Google Map API key.
 
 <details>
   <summary>Below you will find some information on how to perform common tasks.</summary><br>
