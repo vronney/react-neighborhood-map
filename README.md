@@ -13,6 +13,11 @@ The application follows the [Udacity Project Rubic.](https://review.udacity.com/
 4. View window is responsive from desktop, laptop to mobile.  
 5. Calling a Google Map with Google Map API key.
 
+## Dependencies
++ [google-maps-react](https://github.com/google-map-react/google-map-react)
++ [react-dom](https://www.npmjs.com/package/react-dom)
+
+
 <details>
   <summary>Below you will find some information on how to perform common tasks.</summary><br>
 You can find the most recent version of this guide [here](https://github.com/facebook/create-react-app/blob/master/packages/react-scripts/template/README.md).
