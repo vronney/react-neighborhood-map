@@ -17,7 +17,7 @@ const MyMapComponent = withScriptjs(withGoogleMap((props) => (
             
             return (
               < Marker 
-                key={idx} 
+                key={idx}
                 position = {{ lat: marker.lat, lng: marker.lng }} 
                 onClick={() => props.handleMarkerClick(marker)}
                 defaultAnimation={window.google.maps.Animation.DROP}
@@ -31,9 +31,9 @@ const MyMapComponent = withScriptjs(withGoogleMap((props) => (
                         <React.Fragment>
                             <h2>{venueInfo.name}</h2>
                             <img src={`${venueInfo.bestPhoto.prefix}200x200${venueInfo.bestPhoto.suffix}`} alt={"Venue Info"}/>
-                            <p>{venueInfo.location.address}</p>
-                            <p>{venueInfo.location.city} {venueInfo.location.postalCode}</p>
-                            <p>Rating: {venueInfo.rating} Cost: {venueInfo.price.message}</p>    
+                            <p className="venueText">{venueInfo.location.address}</p>
+                            <p className ="venueText">{venueInfo.location.city} {venueInfo.location.postalCode}</p>
+                            <p className="venueText">Rating: {venueInfo.rating}<br/>Cost: {venueInfo.price.message}</p>    
                         </React.Fragment>
                    </InfoWindow> 
                 )}
@@ -49,7 +49,7 @@ class Map extends Component {
         return (
             < MyMapComponent
                 {...this.props}
-                googleMapURL = "https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=AIzaSyAOVpJh6ZP06deNCZ7xABAuBqbhjd5NEDk"
+                googleMapURL = "https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing&key=AIzaSyAOVpJh6ZP06deNCZ7xABAuBqbhjd5NEDk"
                 loadingElement={< div style={{height: `100%`}} />}
                 containerElement={< div style={{height: `100%`, width: `75%`}} />}
                 mapElement={< div style={{height: `100%`}} />}

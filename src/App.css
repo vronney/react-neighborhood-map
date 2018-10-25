@@ -28,7 +28,7 @@
   align-items: center;
   color: white;
   font-size: 1.2em;
-  border-radius: 20px;
+  border-radius: 10px;
 }
 
 .App .title {
@@ -38,10 +38,52 @@
   height: 60px;
 }
 
- /* .App-header {
-  height: 100vh;
-  width: 100vw;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}  */
+@media screen and (max-width: 400px) {
+  .App .title {
+    font-size: 1.4em;
+    height: 100px;
+  }
+  
+  .App #search {
+    font-size: 1.2em;
+    text-align: center;
+  }
+  
+  .App .venueList .listItem {
+    border-radius: 0;
+    width: 80%;
+    display: block;
+  }
+
+  .App .venueList {
+    padding: 0;
+    margin-top: 0;
+  }
+  /* Hides the icon in the listItem */
+  .App .venueList .listItem img {
+    display: none;
+  }
+
+  .App .gmnoprint {
+    display: none;
+  }
+
+  .App button.gm-control-active.gm-fullscreen-control {
+    display: none;
+  }
+
+  .App .gm-style .gm-style-iw {
+    font-weight: 500;
+    font-size: 12px
+  }
+  
+  .App .gm-style img {
+    width: 120px;
+    background-position-x: center;
+  }
+
+  .App h2 {
+    font-size: 15px;
+  }
+
+} 

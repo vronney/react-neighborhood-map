@@ -18,7 +18,8 @@ class App extends Component {
       }
     };
   }
-// Closes infowindow if another marker is clicked
+
+ // Closes infowindow if another marker is clicked
 
   closeAllMarkers = () => {
     const markers = this.state.markers.map(marker => {
@@ -83,7 +84,7 @@ handleListItemClick = venue => {
       return (
       <div className="App">
         <SideBar {...this.state} handleListItemClick={this.handleListItemClick}/>
-        <Map {...this.state} handleMarkerClick={this.handleMarkerClick} />
+        <Map className="map" {...this.state} handleMarkerClick={this.handleMarkerClick} />
       </div>
     );
   }
