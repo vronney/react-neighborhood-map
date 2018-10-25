@@ -8,6 +8,10 @@ The application follows the [Udacity Project Rubic.](https://review.udacity.com/
 
 ## Features
 1. Type into the filter/search box to filter the shown locations on the map.
+2. Click on the list item in the search box to expand the infowindow.
+3. Click on any marker to see the location details fetched from the [FourSquare APIs.](https://developer.foursquare.com/)
+4. View window is responsive from desktop, laptop to mobile.  
+
 <details>
   <summary>Below you will find some information on how to perform common tasks.</summary><br>
 You can find the most recent version of this guide [here](https://github.com/facebook/create-react-app/blob/master/packages/react-scripts/template/README.md).
