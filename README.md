@@ -2,6 +2,8 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 --
+Built with: HTML, CSS, JavaScript, React and API usage.
+
 A single-page web application, built using the React framework, that displays a Google Map of an area and various points of interest. Users can search all included landmarks and, when selected, additional information about a landmark is presented from the FourSquare APIs.
 
 The application follows the [Udacity Project Rubic.](https://review.udacity.com/#!/rubrics/1351/view)
@@ -17,6 +19,15 @@ The application follows the [Udacity Project Rubic.](https://review.udacity.com/
 + [google-maps-react](https://github.com/google-map-react/google-map-react)
 + [react-dom](https://www.npmjs.com/package/react-dom)
 
+## Resources
++ [FourSquare API](https://developer.foursquare.com/)
++ [Google Maps Platform Documentation](https://developers.google.com/maps/documentation/)
++ [Snazzy Maps](https://snazzymaps.com/)
+
+## How to run the app?
+1. cd ./app
+2. npm install
+3. npm start
 
 <details>
   <summary>Below you will find some information on how to perform common tasks.</summary><br>
