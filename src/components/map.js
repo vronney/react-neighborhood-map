@@ -31,8 +31,7 @@ const MyMapComponent = withScriptjs(withGoogleMap((props) => (
                         <React.Fragment>
                             <h2>{venueInfo.name}</h2>
                             <img src={`${venueInfo.bestPhoto.prefix}200x200${venueInfo.bestPhoto.suffix}`} alt={"Venue Info"}/>
-                            <p className="venueText">{venueInfo.location.address}</p>
-                            <p className ="venueText">{venueInfo.location.city} {venueInfo.location.postalCode}</p>
+                            <p className="venueText">{venueInfo.location.address}<br/>{venueInfo.location.city} {venueInfo.location.postalCode}</p>
                             <p className="venueText">Rating: {venueInfo.rating}<br/>Cost: {venueInfo.price.message}</p>    
                         </React.Fragment>
                    </InfoWindow> 
