@@ -62,7 +62,7 @@ handleListItemClick = venue => {
     SquareApi.search({
       near: "San Antonio, TX",
       query: "steakhouse",
-      limit: 10
+      limit: 20
     }).then(results => {
       const {venues} = results.response;
       const {center} = results.response.geocode.feature.geometry;

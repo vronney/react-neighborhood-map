@@ -13,7 +13,14 @@
 }
 
 .App .venueList {
-  padding: 1rem;
+  padding: 0 1em 0 1em;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  background-color: white;
+  width: auto;
+  height: 620px;
+  border: 1px solid black;
+  margin: 0;
 }
 
 .App .venueList .listItem {
@@ -28,7 +35,7 @@
   align-items: center;
   color: white;
   font-size: 1.2em;
-  border-radius: 10px;
+  border-radius: 5px;
 }
 
 .App .title {
@@ -36,6 +43,11 @@
   color: white;
   margin: 0;
   height: 60px;
+}
+
+.App .gm-style .gm-style-iw {
+  font-weight: 500;
+  font-size: 12px
 }
 
 @media screen and (max-width: 400px) {
@@ -50,7 +62,7 @@
   }
   
   .App .venueList .listItem {
-    border-radius: 0;
+    border-radius: 5px;
     width: 80%;
     display: block;
   }
